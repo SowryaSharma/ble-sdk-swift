@@ -3,9 +3,6 @@
 import UIKit
 import CoreBluetooth
 class HRMViewController: UIViewController {
-  
-  @IBOutlet weak var heartRateLabel: UILabel!
-  @IBOutlet weak var bodySensorLocationLabel: UILabel!
   var alreadyconnected:[CBPeripheral]! = []
   var centralManager:CBCentralManager!
   var someperipheral:CBPeripheral!
@@ -18,15 +15,10 @@ class HRMViewController: UIViewController {
     super.viewDidLoad()
     
     // Make the digits monospaces to avoid shifting when the numbers change
-    heartRateLabel.font = UIFont.monospacedDigitSystemFont(ofSize: heartRateLabel.font!.pointSize, weight: .regular)
     
     centralManager = CBCentralManager(delegate: self, queue: nil)
   }
   
-  func onHeartRateReceived(_ heartRate: Int) {
-    heartRateLabel.text = String(heartRate)
-    print("BPM: \(heartRate)")
-  }
 }
 
 extension HRMViewController:CBCentralManagerDelegate{
