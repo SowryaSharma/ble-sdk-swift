@@ -120,9 +120,9 @@ extension HRMViewController:CBPeripheralDelegate{
   }
   func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
     print(characteristic.uuid)
-    print(characteristic.value ?? "no value")
+    debugPrint(characteristic.value ?? "no value")
   }
   func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-    print("isNotifying: \(characteristic.isNotifying)")
+    debugPrint("isNotifying: \(characteristic.isNotifying)")
   }
 }
